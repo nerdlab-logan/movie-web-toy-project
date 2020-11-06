@@ -5,9 +5,10 @@ const defaultConfig: AxiosRequestConfig = {
   baseURL: process.env.NEXT_PUBLIC_THE_MOVIE_DB_V3_API,
   timeout: 30000,
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json;charset=utf-8',
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_THE_MOVIE_DB_AUTH_BEARER}`,
   },
-  withCredentials: true,
+  withCredentials: false,
 }
 
 export default class ThemoviedbApiClient extends HttpClient {
@@ -16,7 +17,6 @@ export default class ThemoviedbApiClient extends HttpClient {
   }
 
   onResponseError(error: any, _axios: AxiosInstance): any {
-    console.error(error)
-    return Promise.reject(error)
+    return super.onResponseError(error, _axios)
   }
 }

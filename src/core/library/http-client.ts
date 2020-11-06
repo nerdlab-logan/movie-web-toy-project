@@ -67,9 +67,11 @@ export default abstract class HttpClient {
     return this._AXIOS_FORM.post(urlPath, createFormData(data))
   }
 
-  private onResponseSuccess(response: AxiosResponse) {
+  protected onResponseSuccess(response: AxiosResponse): any {
     return response.data
   }
 
-  abstract onResponseError(error: any, _axios: AxiosInstance): any
+  protected onResponseError(error: any, _axios: AxiosInstance): any {
+    return Promise.reject(error)
+  }
 }

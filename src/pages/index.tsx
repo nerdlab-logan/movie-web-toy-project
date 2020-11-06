@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocalObservable, observer } from 'mobx-react'
 
 import MainTemplate from '@template/main'
 import SingleCounter from '@ui/organisms/counter/single-counter'
 
 import CounterStore from '@/stores/counter/counter.store'
+import NowPlayingMovieStore from '@store/movie/NowPlayingMovie.store'
 
 const IndexPage = observer(() => {
   const counterStore = useLocalObservable(() => new CounterStore())
+  const nowPlayingMovieStore = useLocalObservable(() => new NowPlayingMovieStore())
+
+  useEffect(() => {
+    nowPlayingMovieStore.fetch()
+  }, [])
 
   const handleIncreaseButtonClick = () => {
     counterStore.increase()
