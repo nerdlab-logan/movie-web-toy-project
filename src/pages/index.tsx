@@ -1,35 +1,29 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocalObservable, observer } from 'mobx-react'
 
 import MainTemplate from '@template/main'
-import SingleCounter from '@ui/organisms/counter/single-counter'
+import MainCarousel from '@ui/organisms/movie/main-carousel'
 
-import CounterStore from '@/stores/counter/counter.store'
 import NowPlayingMovieStore from '@store/movie/NowPlayingMovie.store'
 
 const IndexPage = observer(() => {
-  const counterStore = useLocalObservable(() => new CounterStore())
   const nowPlayingMovieStore = useLocalObservable(() => new NowPlayingMovieStore())
+  const [isFetchNowPlayingMovie, setIsFetchNowPlayingMovie] = useState<boolean>(true)
 
   useEffect(() => {
-    nowPlayingMovieStore.fetch()
+    nowPlayingMovieStore.fetch().then((value) => {
+      setIsFetchNowPlayingMovie(false)
+    })
   }, [])
-
-  const handleIncreaseButtonClick = () => {
-    counterStore.increase()
-  }
-
-  const handleDecreaseButtonClick = () => {
-    counterStore.decrease()
-  }
 
   return (
     <MainTemplate
       CountComponent={
-        <SingleCounter
-          count={counterStore.counter}
-          onDecreaseButtonClick={handleDecreaseButtonClick}
-          onIncreaseButtonClick={handleIncreaseButtonClick}
+        <MainCarousel
+          title="현재 상영 영화"
+          slidesPerView={6}
+          movies={nowPlayingMovieStore.movieList}
+          isLoading={isFetchNowPlayingMovie}
         />
       }
     />
