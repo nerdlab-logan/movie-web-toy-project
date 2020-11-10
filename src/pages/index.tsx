@@ -18,14 +18,15 @@ const IndexPage = observer(() => {
 
   return (
     <MainTemplate
-      CountComponent={
+      MovieCarousels={[
         <MainCarousel
+          key="nowPlaying"
           title="현재 상영 영화"
           slidesPerView={6}
           movies={nowPlayingMovieStore.movieList}
           isLoading={isFetchNowPlayingMovie}
-        />
-      }
+        />,
+      ]}
     />
   )
 })

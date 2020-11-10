@@ -4,14 +4,16 @@ import * as S from './styled'
 import MainLayout from '@layout/main'
 
 interface Props {
-  CountComponent: React.ReactElement
+  MovieCarousels: React.ReactElement[]
 }
 
-const MainTemplate = ({ CountComponent }: Props) => {
+const MainTemplate = ({ MovieCarousels }: Props) => {
   return (
     <MainLayout>
       <S.TemplateWrapper>
-        <S.ContentArea>{CountComponent}</S.ContentArea>
+        {MovieCarousels.map((component, index) => (
+          <S.ContentArea key={index}>{component}</S.ContentArea>
+        ))}
       </S.TemplateWrapper>
     </MainLayout>
   )
