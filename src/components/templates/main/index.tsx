@@ -1,7 +1,7 @@
 import React from 'react'
 import * as S from './styled'
 
-import FullScreenLayout from '@layout/full-screen'
+import MainLayout from '@layout/main'
 
 interface Props {
   CountComponent: React.ReactElement
@@ -9,11 +9,11 @@ interface Props {
 
 const MainTemplate = ({ CountComponent }: Props) => {
   return (
-    <FullScreenLayout>
+    <MainLayout>
       <S.TemplateWrapper>
         <S.ContentArea>{CountComponent}</S.ContentArea>
       </S.TemplateWrapper>
-    </FullScreenLayout>
+    </MainLayout>
   )
 }
 
