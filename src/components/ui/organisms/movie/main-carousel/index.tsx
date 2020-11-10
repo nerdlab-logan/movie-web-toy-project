@@ -37,12 +37,10 @@ const MainCarousel = observer(({ title, isLoading, movies, slidesPerView }: Prop
 
   return (
     <S.Container>
-      <div style={{ height: '100%' }}>
-        <S.TitleArea>
-          <S.Title>{title}</S.Title>
-        </S.TitleArea>
-        <S.ContentArea>{isLoading ? <div>로딩중</div> : <MovieCarousel movies={movies} />}</S.ContentArea>
-      </div>
+      <S.TitleArea>
+        <S.Title>{title}</S.Title>
+      </S.TitleArea>
+      <S.ContentArea>{isLoading ? <div>로딩중</div> : <MovieCarousel movies={movies} />}</S.ContentArea>
     </S.Container>
   )
 })

@@ -26,6 +26,20 @@ const IndexPage = observer(() => {
           movies={nowPlayingMovieStore.movieList}
           isLoading={isFetchNowPlayingMovie}
         />,
+        <MainCarousel
+          key="nowPlaying"
+          title="현재 상영 영화"
+          slidesPerView={6}
+          movies={nowPlayingMovieStore.movieList}
+          isLoading={isFetchNowPlayingMovie}
+        />,
+        <MainCarousel
+          key="nowPlaying"
+          title="현재 상영 영화"
+          slidesPerView={6}
+          movies={nowPlayingMovieStore.movieList}
+          isLoading={isFetchNowPlayingMovie}
+        />,
       ]}
     />
   )

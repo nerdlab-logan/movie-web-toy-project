@@ -1,12 +1,12 @@
 import tw, { styled } from 'twin.macro'
 
 export const RootWrapper = styled.div`
-  ${tw`relative w-full h-screen bg-gray-300`}
+  ${tw`relative w-full h-full bg-gray-300`}
   ${tw`overflow-hidden`}
 `
 
 export const MainContainer = styled.div`
-  ${tw`flex flex-col w-full h-full`}
+  ${tw`flex flex-col w-full min-h-screen`}
 `
 
 export const Content = styled.div`
