@@ -28,7 +28,7 @@ const MainCarousel = observer(({ title, isLoading, movies, slidesPerView }: Prop
             title={movie.title}
             releaseDate={movie.releaseDate}
             voteAverage={movie.voteAverage}
-            posterImagePath={movie.getPosterImageUrl('w185')}
+            posterImagePath={movie.getPosterImageUrl('w500')}
           />
         ))}
       </div>
