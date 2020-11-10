@@ -6,7 +6,7 @@ import MovieModel from './model/movie.model'
 import { ISO_3166_1 } from '@core/constants/code/language/ISO_3166_1'
 import { ISO_639_1 } from '@core/constants/code/language/ISO-639-1'
 
-class NowPlayingMovieStore {
+class PopularMovieStore {
   movieList: MovieModel[] = []
   currentPage = 0
   totalPage = 0
@@ -23,7 +23,7 @@ class NowPlayingMovieStore {
     this.isFetching = true
 
     try {
-      const responseData = await MovieApi.getNowPlayingMovies({
+      const responseData = await MovieApi.getPopularMovies({
         language: ISO_639_1.ko,
         page: 1,
         region: ISO_3166_1.Korea,
@@ -58,4 +58,4 @@ class NowPlayingMovieStore {
   }
 }
 
-export default NowPlayingMovieStore
+export default PopularMovieStore
