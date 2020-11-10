@@ -4,41 +4,29 @@ import { useLocalObservable, observer } from 'mobx-react'
 import MainTemplate from '@template/main'
 import MainCarousel from '@ui/organisms/movie/main-carousel'
 
-import NowPlayingMovieStore from '@store/movie/NowPlayingMovie.store'
-import PopularMovieStore from '@store/movie/PopularMovie.store'
+import NowPlayingMovieStore from '@store/movie/now-playing-movie.store'
+import PopularMovieStore from '@store/movie/popular-movie.store'
+import { useGlobalStore } from '@core/hooks/use-global-stores'
 
 const IndexPage = observer(() => {
+  const { LayoutStore } = useGlobalStore()
   const popularMovieStore = useLocalObservable(() => new PopularMovieStore())
   const nowPlayingMovieStore = useLocalObservable(() => new NowPlayingMovieStore())
-  const [isFetchNowPlayingMovie, setIsFetchNowPlayingMovie] = useState<boolean>(true)
-  const [isFetchPopularMovie, setIsFetchPopularMovie] = useState<boolean>(true)
 
   useEffect(() => {
-    nowPlayingMovieStore.fetch().then((value) => {
-      setIsFetchNowPlayingMovie(false)
-    })
-
-    popularMovieStore.fetch().then(() => {
-      setIsFetchPopularMovie(false)
-    })
+    LayoutStore.contentLoadingOn()
+    Promise.all([popularMovieStore.fetch(), nowPlayingMovieStore.fetch()]).then(() => LayoutStore.contentLoadingOff())
   }, [])
 
   return (
     <MainTemplate
       MovieCarousels={[
-        <MainCarousel
-          key="popular"
-          title="인기 있는 영화"
-          slidesPerView={6}
-          movies={popularMovieStore.movieList}
-          isLoading={isFetchPopularMovie}
-        />,
+        <MainCarousel key="popular" title="인기 있는 영화" slidesPerView={6} movies={popularMovieStore.movieList} />,
         <MainCarousel
           key="nowPlaying"
           title="현재 상영 영화"
           slidesPerView={6}
           movies={nowPlayingMovieStore.movieList}
-          isLoading={isFetchNowPlayingMovie}
         />,
       ]}
     />

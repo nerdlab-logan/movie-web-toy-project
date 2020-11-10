@@ -1,6 +1,6 @@
 import React from 'react'
-import CounterStore from '@/stores/counter/counter.store'
+import LayoutStore from '@/stores/ui/layout.store'
 
 export const StoreContext = React.createContext({
-  CounterStore: new CounterStore(),
+  LayoutStore: new LayoutStore(),
 })

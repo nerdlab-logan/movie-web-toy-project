@@ -5,5 +5,6 @@ export const TemplateWrapper = styled.div`
 `
 
 export const ContentArea = styled.div`
-  ${tw`flex flex-wrap`}
+  min-height: 20rem;
+  ${tw`flex flex-wrap justify-center`}
 `

@@ -10,7 +10,6 @@ import MovieModel from '@store/movie/model/movie.model'
 
 interface Props {
   title: string
-  isLoading: boolean
   movies: MovieModel[]
   slidesPerView?: number
 }
@@ -40,7 +39,9 @@ const MainCarousel = observer(({ title, isLoading, movies, slidesPerView }: Prop
       <S.TitleArea>
         <S.Title>{title}</S.Title>
       </S.TitleArea>
-      <S.ContentArea>{isLoading ? <div>로딩중</div> : <MovieCarousel movies={movies} />}</S.ContentArea>
+      <S.ContentArea>
+        <MovieCarousel movies={movies} />
+      </S.ContentArea>
     </S.Container>
   )
 })

@@ -11,4 +11,5 @@ export const MainContainer = styled.div`
 
 export const Content = styled.div`
   ${tw`flex flex-col px-12 w-full h-full`}
+  ${({ isLoading = false }: { isLoading?: boolean }) => isLoading && tw`flex-1 justify-center items-center`}
 `
