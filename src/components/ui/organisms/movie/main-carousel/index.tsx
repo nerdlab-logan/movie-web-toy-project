@@ -14,7 +14,7 @@ interface Props {
   slidesPerView?: number
 }
 
-const MainCarousel = observer(({ title, isLoading, movies, slidesPerView }: Props) => {
+const MainCarousel = observer(({ title, movies, slidesPerView }: Props) => {
   const MovieCarousel = ({ movies }: { movies: MovieModel[] }) => {
     const [sliderRef] = useKeenSlider({ slidesPerView: slidesPerView || 5, spacing: 12 })
 

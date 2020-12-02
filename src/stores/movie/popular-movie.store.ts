@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from 'mobx'
 
-import MovieApi from '@api/external-api/themoviedb/movie.api'
+import MovieApi from '@api/external-api/themoviedb/movie/movie.api'
 
 import MovieModel from './model/movie.model'
 import { ISO_3166_1 } from '@core/constants/code/language/ISO_3166_1'

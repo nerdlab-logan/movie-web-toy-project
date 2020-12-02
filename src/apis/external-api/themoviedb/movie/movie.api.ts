@@ -1,13 +1,13 @@
 import { AxiosRequestConfig } from 'axios'
 
-import ThemoviedbApiClient from '@/apis/external-api/themoviedb/themoviedb-api-client'
-import GetNowPlayingMoviesRequest from 'src/apis/external-api/themoviedb/request/get-now-playing-movies.request'
-import GetNowPlayingResponse from './response/get-now-playing.response'
+import ThemoviedbApiClient from '@api/external-api/themoviedb/themoviedb-api-client'
+import GetNowPlayingMoviesRequest from '@api/external-api/themoviedb/movie/request/get-now-playing-movies.request'
+import GetNowPlayingResponse from 'src/apis/external-api/themoviedb/movie/response/get-now-playing.response'
 
 import { ISO_639_1 } from '@core/constants/code/language/ISO-639-1'
 import { ISO_3166_1 } from '@core/constants/code/language/ISO_3166_1'
-import GetPopularMoviesRequest from '@api/external-api/themoviedb/request/get-popular.request'
-import GetPopularMoviesResponse from '@api/external-api/themoviedb/response/get-popular.response'
+import GetPopularMoviesRequest from '@api/external-api/themoviedb/movie/request/get-popular.request'
+import GetPopularMoviesResponse from '@api/external-api/themoviedb/movie/response/get-popular.response'
 
 class MovieApi extends ThemoviedbApiClient {
   constructor(apiConfig: AxiosRequestConfig) {
