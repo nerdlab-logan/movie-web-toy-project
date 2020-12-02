@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import * as S from './styled'
 
 interface BaseProps {
@@ -10,7 +10,7 @@ interface BaseProps {
 
 export type Props = BaseProps & Omit<HTMLAttributes<any>, 'type' | 'onClick'>
 
-const MovieCarouselCard = ({ posterImagePath, releaseDate, title, voteAverage, ...rest }: Props) => {
+const MovieCarouselCard: FC<Props> = ({ posterImagePath, releaseDate, title, voteAverage, ...rest }) => {
   return (
     <S.MovieCard {...rest}>
       <S.Poster src={posterImagePath} />

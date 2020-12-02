@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { observer } from 'mobx-react'
 import * as S from './styled'
 import ReactLoading from 'react-loading'
@@ -7,7 +7,7 @@ import Header from './elements/header'
 import Footer from './elements/footer'
 import { useGlobalStore } from '@core/hooks/use-global-stores'
 
-const MainLayout: React.FC = observer(({ children }) => {
+const MainLayout: FC = observer(({ children }) => {
   const { LayoutStore } = useGlobalStore()
 
   return (

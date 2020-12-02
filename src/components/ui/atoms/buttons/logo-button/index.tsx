@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import Link from 'next/link'
 import * as S from './styled'
 
@@ -6,7 +6,7 @@ interface Props {
   href: string
 }
 
-const LogoButton = ({ href }: Props) => {
+const LogoButton: FC<Props> = ({ href }) => {
   return (
     <Link passHref={true} href={href}>
       <S.Logo>

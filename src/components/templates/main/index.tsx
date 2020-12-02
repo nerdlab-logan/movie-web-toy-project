@@ -1,13 +1,13 @@
-import React from 'react'
+import { FC, ReactElement } from 'react'
 import * as S from './styled'
 
 import MainLayout from '@layout/main'
 
 interface Props {
-  MovieCarousels: React.ReactElement[]
+  MovieCarousels: ReactElement[]
 }
 
-const MainTemplate = ({ MovieCarousels }: Props) => {
+const MainTemplate: FC<Props> = ({ MovieCarousels }) => {
   return (
     <MainLayout>
       <S.TemplateWrapper>

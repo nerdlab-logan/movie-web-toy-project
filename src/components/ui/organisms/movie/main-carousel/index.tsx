@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC, RefObject } from 'react'
 import { observer } from 'mobx-react'
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react'
@@ -14,12 +14,12 @@ interface Props {
   slidesPerView?: number
 }
 
-const MainCarousel = observer(({ title, movies, slidesPerView }: Props) => {
+const MainCarousel: FC<Props> = observer(({ title, movies, slidesPerView }) => {
   const MovieCarousel = ({ movies }: { movies: MovieModel[] }) => {
     const [sliderRef] = useKeenSlider({ slidesPerView: slidesPerView || 5, spacing: 12 })
 
     return (
-      <div ref={sliderRef as React.RefObject<HTMLDivElement>} className="keen-slider" style={{ paddingBottom: '10px' }}>
+      <div ref={sliderRef as RefObject<HTMLDivElement>} className="keen-slider" style={{ paddingBottom: '10px' }}>
         {movies.map((movie) => (
           <MovieCarouselCard
             key={movie.id}

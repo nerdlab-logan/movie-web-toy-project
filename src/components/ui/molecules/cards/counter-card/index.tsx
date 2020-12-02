@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import * as S from './styled'
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   onDecreaseButtonClick: () => void
 }
 
-const CounterCard = ({ count, onIncreaseButtonClick, onDecreaseButtonClick }: Props) => {
+const CounterCard: FC<Props> = ({ count, onIncreaseButtonClick, onDecreaseButtonClick }) => {
   return (
     <>
       <S.CounterCard>
